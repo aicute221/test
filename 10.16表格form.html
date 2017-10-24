@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            //alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+            var oTab = document.getElementById("tab1");
+            var oBtn = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            var oBtn3 = document.getElementById("btn3");
+            var oName = document.getElementById("name");
+            var oAge = document.getElementById("age");
+            var oA = document.getElementsByTagName("a");
+            var id = oTab.tBodies[0].rows.length+1;
+
+            oBtn.onclick = function(){
+                var oTr = document.createElement("tr");
+
+                var oTd = document.createElement("td");
+                oTd.innerHTML = id++ ;
+                oTr.appendChild(oTd);
+
+                var oTd = document.createElement("td");
+                oTd.innerHTML = oName.value;
+                oTr.appendChild(oTd);
+
+                var oTd = document.createElement("td");
+                oTd.innerHTML = oAge.value;
+                oTr.appendChild(oTd);
+
+                var oTd = document.createElement("td");
+                oTd.innerHTML = "<a href='#'>删除";
+                oTr.appendChild(oTd);
+
+                oTab.tBodies[0].appendChild(oTr);
+
+                for(var i=0;i<oA.length;i++){
+                    oA[i].onclick = function(){
+                        oTab.tBodies[0].removeChild(this.parentNode.parentNode)
+                        }
+                    }
+
+                 };
+
+            oBtn2.onclick = function(){
+                for(var j = 0;j<oTab.tBodies[0].rows.length;j++){
+                    var sTab=oTab.tBodies[0].rows[j].cells[1].innerHTML.toLowerCase();
+                    var sName=oName.value.toLowerCase(); //toLowerCase()转化为小写之后比较
+                    var arr = sName.split(" ");
+                    oTab.tBodies[0].rows[j].style.background = "";
+                    for(var x = 0;x<arr.length;x++){
+                        if(sTab.search(arr[x]) !== -1){
+                            oTab.tBodies[0].rows[j].style.background = "yellow"
+                        }
+                    }
+                }
+            };
+
+            oBtn3.onclick=function(){
+
+
+                var arr3=[];
+                for(var y = 0;y<oTab.tBodies[0].rows.length;y++){
+                    arr3[y] = oTab.tBodies[0].rows[y];
+                }
+
+                console.log(arr3);
+
+                arr3.sort(function(tr1,tr2){
+                    var n1=parseInt(tr1.cells[0].innerHTML);
+                    var n2=parseInt(tr2.cells[0].innerHTML);
+                    return n1-n2;
+                });
+
+                console.log(arr3);
+
+
+                for(var y = 0;y<arr3.length;y++){
+                    oTab.tBodies[0].appendChild(arr3[y]);
+                }
+            }
+//            var oldColor = "";
+//            for(var i = 0;i < oTab.tBodies[0].rows.length;i++) {
+//                oTab.tBodies[0].rows[i].onmouseover = function () {
+//                    oldColor = this.style.background;
+//                    this.style.background = "green"
+//                };
+//                oTab.tBodies[0].rows[i].onmouseout = function () {
+//                    this.style.background = oldColor;
+//                };
+//                if (i % 2 == 1) {
+//                    oTab.tBodies[0].rows[i].style.background = ""
+//                } else {
+//                    oTab.tBodies[0].rows[i].style.background = "#ccc"
+//                }
+//            }
+
+        };
+
+    </script>
+</head>
+<body>
+<label for="name">姓名：</label>
+<input id="name" type="text" >
+<label for="age">年龄：</label>
+<input id="age" type="text">
+<input id="btn1" type="button" value="添加">
+<input id="btn2" type="button" value="搜索">
+<input id="btn3" type="button" value="排序">
+
+<table id="tab1" border="1" width="500px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Blue</td>
+        <td>27</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>张子</td>
+        <td>25</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>李四</td>
+        <td>24</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>王二</td>
+        <td>22</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>张三</td>
+        <td>23</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

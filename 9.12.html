@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.12的学习练习</title>
+    <style type="text/css">
+        .c1{
+            width:200px;padding:5px;margin:25px;height:50px;
+            border:2px solid green;
+            outline:2px solid red;
+            outline-offset:15px;
+        }
+
+        .c2{
+            width:200px;padding:5px;margin:25px;height:50px;
+            border:2px solid green;
+            resize:both;
+            overflow:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1">在div边框边缘外有外轮廓：outline outline-offset</div>
+    <div class="c2">resize是否由客户调整元素大小:resize overflow</div>
+
+    <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls" autoplay="autoplay" loop="loop" width="280" height="140">小熊在河里捉鱼</video>
+    <br><br>
+
+    <audio controls="controls">
+        <source src="http://www.w3school.com.cn/i/song.mp3" type="audio/mpeg">
+        <source src="http://www.w3school.com.cn/i/song.ogg" type="audio/ogg">
+        歌曲播放
+    </audio>
+
+    <script>
+        document.write("<p>script里面直接document.write之后小括号里面引号里写个段落</p>")
+        document.write("我试试直接打字吧")
+    </script>
+    <br><br>
+
+    <button type="button" onclick="alert('于祥和从楠相亲相爱的一家人')">点呀点啊试试</button><br><br>
+
+    <div id="c3">我是谁，我从哪里来，我要到哪里去</div>
+    <div id="c4">我是谁，我从哪里来，我要到哪里去</div>
+    <button type="button" onclick="myFunction()">点击看回答呀</button>
+    <script>
+        function myFunction() {
+        document.getElementById("c3").innerHTML="谁啊，哪里来啊，去哪里去啊";
+        document.getElementById("c4").innerHTML="我乃唐三藏，从东土大唐来，要去西天取经去";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9.11练习</title>
+    <style type="text/css">
+        .b1{
+            width: 100px;  height: 100px;  background: greenyellow;border-radius:15px;
+            transition: width 2s linear 1s,height 2s linear 1s,transform 2s linear 1s;
+            -webkit-transition:width 2s linear 1s,height 2s linear 1s,-webkit-transform 2s linear 1s;
+            -o-transition: width 2s linear 1s,height 2s linear 1s,-o-transform 2s linear 1s;
+            -moz-transition: width 2s linear 1s,height 2s linear 1s,-moz-transform 2s linear 1s;
+        }
+
+        .b1:hover {
+            width:150px;  height:150px;
+            transform:rotate(180deg);
+            -webkit-transform:rotate(180deg);
+            -o-transform:rotate(180deg);
+            -moz-transform:rotate(180deg)}
+
+        .b2{
+            width:80px;height:80px;background-color:greenyellow;border-radius:20px;text-align:center;padding:10px;
+            transition: width 0.5s linear,height 0.5s linear,background-color 0.5s linear,transform 0.5s linear;
+            -webkit-transition:width 0.5s linear,height 0.5s linear,background-color 0.5s linear,-webkit-transform 0.5s linear;
+            -o-transition: width 0.5s linear,height 0.5s linear,background-color 0.5s linear,-o-transform 0.5s linear;
+            -moz-transition: width 0.5s linear,height 0.5s linear,background-color 0.5s linear,-moz-transform 0.5s linear;
+        }
+
+        .b2:hover{
+            width:100px;height:100px;background-color:green;
+            transform:rotate(360deg);
+            -webkit-transform:rotate(360deg);
+            -o-transform:rotate(360deg);
+            -moz-transform:rotate(360deg)
+        }
+
+        .b3{width:80px;height:80px;padding:10px;background-color:red;border-radius:15px;position:relative;
+            animation:myfirst 5s linear 1s infinite alternate;
+            -webkit-animation:myfirst 5s linear 1s infinite alternate;
+            -o-animation:myfirst 5s linear 1s infinite  alternate;
+            -moz-animation:mmyfirst 5s linear 1s infinite alternate;
+        }
+
+        @keyframes myfirst{
+            0%{background-color:red;left:0;top:0;}
+            25%{background-color:green;left:0px;top:70px;}
+            50%{background-color:yellow;left:150px;top:70px;}
+            75%{background-color:blue;left:150px;top:0px;}
+            100%{background-color:#E9967A;left:0px;top:0px;}
+        }
+
+        .b4{
+            -webkit-column-count:3;
+            -webkit-column-gap:35px;
+            -webkit-column-rule:5px double green;
+        }
+
+        h1{-webkit-column-span:all;}
+    </style>
+
+</head>
+
+<body>
+    <div class="b1">2s完成长宽旋转180度</div><br><br><br>
+    <div class="b2">360度原地转圈长宽变</div><br
+    <div class="b3">厉害啊各种动作</div><br><br><br><br><br><br><br><br><br>
+    <div class="b4"><h1>标题大大大大大大大大分割不分割分割不分割</h1>1234567890qfweiogdsdfergtertertjerererererersvdgsdvdsgsdtvacvzsch我是谁mxznbcksjgdjsahgiwysoiwgidsjvxcjkzbkjvzkjcksbkjve我从哪里来srfwerwrdsjagdasfdweweweahdkahldkgsalkjgdkjsagdksajgdiwsdiugwoiuteoiq我要到哪里去wyteiowtyioetwoitreoiwgoriwtoirowitroiwtowirtwahsfdjaswewew
+    </div>
+</body>
+
+</html>

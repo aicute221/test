@@ -1,0 +1,103 @@
+p,h1,div,body{
+    margin: 0;
+}
+
+.content{
+    background-color: #f0f0f0;
+}
+
+.container{
+    width: 1000px;
+    margin:0 auto;
+    padding: 60px 0;
+}
+
+.con-top {
+    background-color: white;
+    text-align: center;
+    height: 60px;
+
+}
+
+.con-bottom{
+    background-color: white;
+    padding: 20px 60px;
+    height: 500px;
+}
+
+#p1{
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 0 12px 0;
+
+}
+
+#p2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.left{
+    height:300px;
+    width: 250px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    margin: 10px 12px 30px 0;
+    position: relative;
+}
+
+.bottom-left{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+
+.butt{
+    background-color: #8B4513;
+    border-radius: 5px;
+    padding: 7px 18px;
+    margin: 5px 5px 0 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: white;
+    border: 1px solid greenyellow;
+}
+
+.di{
+    position: absolute;
+    bottom: 10px;
+    width: 250px;
+}
+
+.long{
+    height: 12px;
+    border-radius: 6px;
+    margin: 3px auto;
+}
+
+.long1{
+    background-color:red;
+    width:80px;
+}
+
+.long2{
+    background-color:chocolate;
+    width:100px;
+}
+
+.long3{
+    background-color:yellowgreen;
+    width:120px;
+}
+
+.long4{
+    background-color:green;
+    width:140px;
+}
+
+.long5{
+    background-color:lightcoral;
+    width:160px;
+}

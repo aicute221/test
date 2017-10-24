@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件啊</title>
+    <style type="text/css">
+        #div1{
+            background-color: #DCDCDC;
+            width: 100px;
+            height: 100px;
+            display: none;
+        }
+    </style>
+    <script>
+         window.onload=function(){
+//         document.onclick = function(ev){
+//             var oEvent = event||ev;
+//             alert(oEvent.clientX + "," + oEvent.clientY);
+//         }
+            var oBtn = document.getElementById("btn1");
+            var oDiv = document.getElementById("div1");
+
+            oBtn.onclick=function(ev){
+
+//                if(ev = "event"){
+//                    event.cancelBubble = true;
+//                }else{
+//                    ev.cancelBubble = true;
+//                    }
+                var oEvent = ev||event;
+                oDiv.style.display = "block";
+                oEvent.cancelBubble = true;
+
+
+            };
+            document.onclick=function(){
+                oDiv.style.display = "none";
+            };
+
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+<div id="div1"></div>
+
+</body>
+</html>

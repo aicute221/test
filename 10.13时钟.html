@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+</head>
+<style type="text/css">
+    img,span{
+        width:30px;height:60px;
+    }
+
+    #div1{
+        width: 50px;height: 50px;background-color: red;
+    }
+
+    #div2{
+        width: 100px;height: 100px;background-color: cadetblue; display:none;
+    }
+
+    #div3{
+        width: 50px;height: 50px;background-color: red; position:absolute; left:10px;top:250px;
+    }
+
+</style>
+<script>
+
+    function toDou(n){
+        if(n<10){
+            return "0"+n
+        }else{
+            return ""+n
+        }
+    }
+
+    window.onload=function(){
+
+        //数字时钟
+        var aImg = document.getElementsByTagName("img");
+        function tick(){var oDate = new Date();
+            var str = toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+            for(var i = 0;i<aImg.length;i++){
+                aImg[i].src="img/"+str[i]+".png"
+            }}
+        setInterval(tick,1000);
+        tick();
+
+        //鼠标移入移出
+        var oDiv1 = document.getElementById("div1");
+        var oDiv2 = document.getElementById("div2");
+        var timer = null;
+        oDiv1.onmouseover=oDiv2.onmouseover=function(){
+            oDiv2.style.display = "block";
+            clearTimeout(timer)
+        };
+        oDiv1.onmouseout=oDiv2.onmouseout=function(){
+            timer=setTimeout(function(){
+                oDiv2.style.display = "none"
+            },500);
+        };
+
+        //从左到右移动
+        var oDiv3 = document.getElementById("div3");
+        setInterval(function(){
+            oDiv3.style.left = oDiv3.offsetLeft+10+"px";
+        },30)
+
+
+
+
+    };
+
+    //var oDate2 = new Date();
+    //alert(oDate2.getFullYear());  年
+    //alert(oDate2.getMonth()+1);   月
+    //alert(oDate2.getDate());      日
+    //alert(oDate2.getDay());       周几
+
+
+</script>
+<body>
+<div>
+    <img src="img/0.png">
+    <img src="img/1.png"><span>:</span>
+    <img src="img/0.png">
+    <img src="img/0.png"><span>:</span>
+    <img src="img/4.png">
+    <img src="img/0.png">
+</div>
+
+<div id="div1"></div><br>
+<div id="div2"></div>
+
+
+<div id="div3"></div>
+
+
+
+
+</body>
+</html>

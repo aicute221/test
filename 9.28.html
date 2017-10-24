@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .card{
+            border-left: 1px solid #bbb;
+            border-right: 1px solid #bbb;
+            width: 200px;
+            height: 300px;
+            display: inline-block;
+            position: relative;
+            background-color: #fefefe;
+            margin: 0;
+            padding: 0;
+            transition: box-shadow .15s,transform .15s;
+            -moz-transition: box-shadow .15s,transform .15s;
+            -webkit-transition: box-shadow .15s,transform .15s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            position: relative;
+            z-index: 999;
+            box-shadow: 0 0 30px rgba(0,0,0,.3);
+            transform: translateY(-10px) scale(1.04);
+            -moz-transform: translateY(-10px) scale(1.04);
+            -webkit-transform: translateY(-10px) scale(1.04);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div style="margin: 100px">
+        <div class="card">
+
+        </div>
+        <div class="card">
+
+        </div>
+        <div class="card">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

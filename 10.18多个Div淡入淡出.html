@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个淡入淡出</title>
+    <style>
+        div{
+            display:inline-block;
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-right: 20px;
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv = document.getElementsByTagName("div");
+
+            for(var i = 0;i<oDiv.length;i++){
+                oDiv[i].timer = null;
+                oDiv[i].op = 30;
+                oDiv[i].onmouseover = function(){
+                    move(this,100)
+                };
+                oDiv[i].onmouseout = function(){
+                    move(this,30)
+                }
+            }
+
+
+
+            function move(obj,iTarget){
+                clearInterval(obj.timer);
+
+                obj.timer = setInterval(function(){
+//                    var speed = 0;
+//                    if( obj.op < iTarget){
+//                        speed = 10;
+//                    }else{
+//                        speed = -10;
+//                    }
+
+                    var speed = (iTarget-obj.op)/6;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                    if(obj.op === iTarget){
+                        clearInterval(obj.timer)
+                    }else{
+                        obj.op = obj.op + speed;
+                        obj.style.opacity = obj.op/100 ;
+                    }
+
+                },30)
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('btn1');
+            function myAjax(url,fnSucc,fnFaild){
+                //1.创建ajax对象
+                if(window.XMLHttpRequest){
+                    var oAjax = new XMLHttpRequest();
+                }else{
+                    var oAjax = new ActiveXObject("Microsoft.XMLHTTP")   //IE6
+                }
+                //2.连接到服务器 open(方法，文件名，异步传输)
+                oAjax.open("GET","url?t="+new Date().getTime(),true);
+                //3.发送请求
+                oAjax.send();
+                //4.接收返回
+                oAjax.onreadystatechange = function(){
+                    //oAjax.readyState //浏览器进行到哪一步了
+                    if(oAjax.readyState == 4){   //读取完成
+                        if(oAjax.status ==200 ){
+                            fnSucc(oAjax.responseText)
+                        }else{
+                            if(fnFaild){
+                                fnFaild(oAjax.status)
+                            }
+                        }
+                    }
+                }
+            }
+
+            oBtn.onclick = myAjax("1.txt",function(str){
+                alert(str)
+            },function(){
+                alert("失败：")
+            })
+        }
+    </script>
+</head>
+<body>
+<input  id="btn1" type="button" value="按钮">
+</body>
+</html>

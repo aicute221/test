@@ -1,0 +1,47 @@
+h1,h2,h3,h4,a,p {
+    border: 0;
+}
+
+body{
+    margin:0;
+}
+
+div{
+    padding:10px 200px;
+}
+
+.text1{
+    background-color: #DCDCDC;
+}
+
+.text1 a{
+    text-decoration: none;
+    color: #D19275;
+}
+
+.text2{
+    background-color: #8B4513;
+    color: #FFDEAD;
+}
+
+.text2 a{
+    text-decoration: none;
+    color: #FFDEAD;
+}
+
+.text2 a:hover{
+    color: white;
+}
+
+#a1{
+    text-decoration: none;
+    background-color: #D2B48C;
+    color: white;
+    padding:3px 6px;
+}
+
+#a1:hover{
+    background-color: #8B4513;
+}
+
+

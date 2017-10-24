@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+    <style type="text/css">
+        #div1{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-color: #7FFFD4;
+        }
+        #parent{
+            width: 600px;
+            height: 20px;
+            position: relative;
+            background-color: #DCDCDC;
+            margin: 0 auto;
+        }
+        #div2{
+            background-color: #87CEEB;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        #div3{
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv = document.getElementById("div1");
+            var oDiv2 = document.getElementById("div2");
+            var oDiv3 = document.getElementById("div3");
+            var oParent = document.getElementById("parent");
+            var disX = 0;
+            oDiv.onmousedown = function(ev){
+                var oEvent = ev||event;
+                 disX = oEvent.clientX - oDiv.offsetLeft;
+
+                 document.onmousemove = function(ev){
+                     var oEvent = ev||event;
+                     var l =oEvent.clientX - disX;
+                     if(l<0){
+                        l = 0;
+                     }else if(l > oParent.offsetWidth - oDiv.offsetWidth){
+                         l = oParent.offsetWidth - oDiv.offsetWidth
+                     }
+                     oDiv.style.left = l + "px";
+
+                     var scale = l/(oParent.offsetWidth - oDiv.offsetWidth);
+                     document.title = scale;
+//                     oDiv2.style.width = 400*scale + "px";
+//                     oDiv2.style.height = 400*scale + "px";
+//                     oDiv2.style.opacity = scale;
+                     oDiv3.style.top = -(oDiv3.offsetHeight- oDiv2.offsetHeight)*scale + "px";
+                 };
+
+                 document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                 };
+               return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="parent">
+    <div id="div1"></div>
+</div>
+<div id="div2">
+    <div id="div3">
+        《列子·黄帝》一篇，见有列子“乘风而归”的说法。又有列子对尹生说的一段话：“心凝形释，骨肉都融，不觉形之所倚，足之所履，随风东西，犹木叶干壳。意不知风乘我耶？我乘风乎？”这里的“心”与“神”相通，张湛注《列子》即把“心凝形释”说成“神凝形废”了。
+        什么叫做“神凝”呢？《黄帝》篇里就有“用志不分，乃疑（通凝）于神”的话。指用心专一。当然，这“神”与“凝”，都不是停滞的、枯死的，而是如《周易·系辞·上》所说：“唯神也，故不疾而速，不行而至。”也就是说，“神”是可以超越空间而自由驰骋的。具体到文章写作，也就是如上文所说，“神”是有趋向性的，富于动感的。
+        至于“形”的含义，《乐记》里有“在天成象，在地成形”的话。钱钟书先生释为“‘形’者，完成之定状”。钱先生还引述亚里士多德论“自然”有五层含义。其四，是“相形之下，尚未成形之原料”，也就是“有质而无形”的状态；其五，是“止境宿归之形”。这种由“原质”，“原料”而“成形”的说法用之于文章写作，也如钱先生所阐述的，“春来花鸟，具‘形’之天然物色也，而性癖耽吟者反目为‘诗料’”。指明做为“诗料”的“形”，即包括着“题材”的内。“吟安佳句，具‘形’之词章也”。指明做为诗文的“形”即指“词章”，包括语言、结构等。我在上文所论“形”的概念，也具有同这里所引说法的一致性。
+        总起来看，论述散文创作的某种特色所惯常运用的提法“形散神不散”，其“神”与“形”的含义许是取喻于《列子》“神凝形释”的。而运用“神凝形散”或“神收形放”一类话来赞美散文的构思谋篇，在概念上虽属借喻，但是同《列子》的提法具有相当的对应的类比性质，且用语简括，概念现成，有较强的表现力。那么，散文研究领域里的“形神”说之所以被承认，被沿用，原因之一，正在于此。
+    </div>
+</div>
+</body>
+</html>

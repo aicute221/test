@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/10.3.css" rel="stylesheet" type="text/css">
+</head>
+
+<script>
+
+    window.onload = function(){
+        var oA = document.getElementsByTagName("a");
+        var oUl = document.getElementById("ul1");
+        for(var i = 0;i < oA.length;i++){
+            oA[i].onclick = function(){
+               // this.parentNode.style.display = "none";
+                oUl.removeChild(this.parentNode)
+            }
+        }
+
+
+        var arr = [1, 2, 5, 7, 3, 4, 5, 7, 9, 12, 34, 56, 78, 90, 45, 65, 54, 32, 76, 54];
+
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+
+        console.log(arr)
+
+        function find_number(num){
+            var start = 0;
+            var end = arr.length - 1;
+
+            while (start !== end){
+                var c = parseInt((start + end) / 2);
+                if (arr[c] === num){
+                    return c;
+                } else if (arr[c] > num){
+                    end = c - 1;
+                } else{
+                    start = c + 1;
+                }
+            }
+
+            if (arr[start] === num){
+                console.log("需要最后判断");
+                return start;
+            }
+
+            return false;
+        }
+
+        var find_numbers = [1, 2, 3, 56, 90, 6];
+        for (var i = 0; i < find_numbers.length; i ++){
+            console.log(find_number(find_numbers[i]));
+        }
+
+    }
+
+</script>
+
+<body>
+    <div class="con-top">
+        <h1>我是谁，我从哪里来，要到哪里去</h1>
+    </div>
+    <div class="content">
+        <ul id="ul1">
+            <li>111<a href="#">隐藏</a></li>
+            <li>222<a href="#">隐藏</a></li>
+            <li>333<a href="#">隐藏</a></li>
+            <li>444<a href="#">隐藏</a></li>
+            <li>555<a href="#">隐藏</a></li>
+        </ul>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <link href="css/10.11.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div class="dada">
+        <div class="content">
+            <div class="container">
+                <div class="month">
+                    <ul>
+
+
+                    </ul>
+                </div>
+                <div class="thing-a">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    $(document).ready(function(){
+        var arr1 = [,'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        for( var i = 1;i<13;i++){
+            $("ul").append("<li data-target='.thing-"+i+"'><p>"+i+"月</p><p>"+arr1[i]+"</p></li>")
+        }
+        });
+    //<p class="thing thing-1">111的事情啊11</p>
+        var arr2 = [,'111的事情啊11','2222事情2222222','33事情333333333','444444444事情44','555555事情55555','6666事情6666666'
+        ,'777事情77777777','888888事情88888','999999事情99999','10事情10101010','11.11事情.11.11','12.12.12事情.12'];
+        for(var j =1;j<13;j++){
+            $(".thing-a").append("<p class='thing thing-"+j+"'>"+arr2[j]+"</p>")
+        }
+    //$(document).on("click", "选择器"， function(){  事件处理  });
+        $(".thing").hide();
+        $(".thing-1").show();
+    //$(document).on("click", "选择器"， function(){  事件处理  });
+        $(document).on("click","li",function(){
+            $(this).css({"color":"red","background-color":"white"});
+            $(this).siblings("li").css({"color":"black","background-color":"lightcyan"});
+            $(".thing").hide();
+            $($(this).data("target")).show();
+        });
+
+
+
+
+
+
+</script>
+
+</html>

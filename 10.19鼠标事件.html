@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+    <style type="text/css">
+        div{
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            background-color: #7FFFD4;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv = document.getElementsByTagName("div");
+            function getPos(ev){
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                return {x: ev.clientX + scrollLeft, y: ev.clientY + scrollTop};
+            }
+
+            document.onmousemove = function(ev){
+
+                for( var i =oDiv.length-1;i>0;i--){
+                    oDiv[i].style.left = oDiv[i-1].offsetLeft + "px";
+                    oDiv[i].style.top = oDiv[i-1].offsetTop + "px";
+                }
+                var oEvent = ev||event;
+                var pos = getPos(oEvent);
+                oDiv[0].style.left=pos.x+"px";
+                oDiv[0].style.top=pos.y+"px";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

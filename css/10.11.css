@@ -1,0 +1,60 @@
+h1,h2,h3,p,body,div,ul,li{
+    margin: 0;
+    padding:0;
+}
+
+.dada{
+    background-color: #DCDCDC;
+    padding: 30px;
+}
+
+.content{
+    width:500px;
+    background-color: #D2B48C;
+    margin:0 auto;
+    padding:30px;
+}
+
+.container{
+    background-color: lightgoldenrodyellow;
+    width:400px;
+    height:660px;
+    margin:0 auto;
+    position:relative;
+}
+
+.thing-a{
+    background-color: lightyellow;
+    height:150px;
+    position: absolute;
+    bottom:20px;
+    left:30px;
+    right:35px;
+    margin:0 auto;
+}
+
+.month{
+    position: absolute;
+    left:30px;
+    top:20px;
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    display:inline-block;
+    height:100px;
+    width:100px;
+    background-color: lightcyan;
+    margin: 5px 9px 5px 0;
+    vertical-align: top;
+}
+
+p{
+    text-align: center;
+    font-size:25px;
+    margin: 10px;
+}

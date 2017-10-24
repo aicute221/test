@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单</title>
+    <style type="text/css">
+        ul{
+            list-style-type: none;
+            background-color: #DCDCDC;
+            width: 70px;
+        }
+
+        #div1{
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv = document.getElementById("div1");
+
+            document.oncontextmenu=function(ev){
+                var oEvent = event||ev;
+                oDiv.style.display = "block";
+                oDiv.style.left = oEvent.clientX + "px";
+                oDiv.style.top = oEvent.clientY + "px";
+                return false;
+            };
+
+            document.onclick=function(){
+                oDiv.style.display = "none";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+</div>
+</body>
+</html>

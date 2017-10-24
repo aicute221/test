@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.9啊啊啊</title>
+    <link href="css/10.9css.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        function setStyle(a,b){
+            var sha = document.getElementsByClassName('div2');
+            sha[0].style[a] = b;
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+<div class="content">
+    <input id="input1" type="checkbox">
+    <div class="tishi tishi1">放上显示，不放就消失</div>
+    <br><br><br>
+    <input id="input2" type="checkbox">
+    <div class="tishi tishi2">放上显示，不放就消失</div>
+    <br><br><br>
+    <div class="diva div1"></div>
+    <br><br>
+    <input class="input input3" type="text" value="于香香">
+    <button class="butt butt1">点点</button>
+
+    <p class="list-p">课程</p>
+    <ul>
+        <li class="list-li">语文</li>
+        <li class="list-li">数学</li>
+        <li class="list-li">英语</li>
+        <li class="list-li">生物</li>
+    </ul>
+    <br>
+    <button class="butt" onclick="setStyle('width','200px')">变长</button>
+    <button class="butt" onclick="setStyle('height','200px')">变高</button>
+    <button class="butt" onclick="setStyle('background-color','green')">变绿</button>
+    <div class="diva div2"></div><br>
+
+    <button class="butt butt2" >全选</button>
+    <button class="butt butt3" >取消全选</button>
+    <button class="butt butt4" >反选</button>
+
+
+    <input type="checkbox" id="check-all"><br>
+    <input type="checkbox" class="input input4">
+    <input type="checkbox" class="input input4">
+    <input type="checkbox" class="input input4">
+    <input type="checkbox" class="input input4">
+    <input type="checkbox" class="input input4">
+    <br><br>
+
+    <h3 class="h3-1" data-target=".div3-1">1</h3>
+    <h3 class="h3-2" data-target=".div3-2">2</h3>
+    <h3 class="h3-3" data-target=".div3-3">3</h3>
+    <br>
+
+    <div class="div3 div3-1"><p class="p1">111111111111111111111111111111</p></div>
+    <div class="div3 div3-2"><p class="p1">222222222222222222222222222222</p></div>
+    <div class="div3 div3-3"><p class="p1">333333333333333333333333333333</p></div>
+
+
+</div>
+</body>
+   <script>
+       $(document).ready(function(){
+           $(".tishi1").hide();
+           $("#input1").hover(function(){
+               $(".tishi1").show();
+           },function(){
+               $(".tishi1").hide();
+           });
+
+
+           $(".tishi2").hide();
+           $("#input2").mouseover(function(){
+               $(".tishi2").show();
+           });
+           $("#input2").mouseout(function(){
+               $(".tishi2").hide();
+           });
+
+
+           $(".div1").mouseover(function(){
+               $(this).animate({height:"150px",width:"150px"})
+           });
+           $(".div1").mouseout(function(){
+               $(this).animate({height:"100px",width:"100px"});
+           });
+
+           $(".butt1").click(function(){
+               $(".input3").val("从楠楠")
+           });
+
+           $(".list-li").hide();
+           $(".list-p").click(function(){
+               $(".list-li").toggle()
+           });
+
+           $(".butt2").click(function(){
+               $(".input4").prop("checked",true);
+           });
+
+           $(".butt3").click(function(){
+               $(".input4").prop("checked",false);
+           });
+
+           $(".butt4").click(function(){
+               $(".input4").each(function(){
+                   if($(this).prop("checked")){
+                       $(this).prop("checked",false)
+                   }else{
+                       $(this).prop("checked",true);
+                   }
+               });
+           });
+
+
+           $("#check-all").change(function(){
+
+              $(".input4").prop("checked", $(this).prop('checked'));
+
+           });
+
+
+           $(".div3").hide();
+           $(".div3-1").show();
+           $(".h3-1").css("background-color", "#55b6da")
+
+           $("h3").click(function(){
+               $(this).siblings("h3").css("background-color", "greenyellow");
+               $(this).css("background-color", "#55b6da");
+               $(".div3").hide();
+               $( $(this).data("target") ).show();
+           });
+
+
+
+       });
+
+
+
+   </script>
+
+
+
+</html>

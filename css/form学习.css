@@ -1,0 +1,27 @@
+form div{
+    margin:8px 0;
+}
+
+label{
+    display:inline-block;
+    width:100px;
+    text-align:right;
+}
+
+.sex-like{
+    width:50px;
+    text-align:left;
+}
+
+input.input-text{
+    padding:5px 10px;
+    border: 2px dotted #999999;
+    border-radius: 6px;
+}
+
+textarea{
+    width:500px;
+    height:200px;
+    border: 2px dotted #888888;
+    border-radius: 4px;
+}

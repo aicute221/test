@@ -1,0 +1,250 @@
+body,h1,p,div,img{
+    margin: 0
+}
+
+h1{
+    text-align: center;
+    font-weight: 200;
+    padding-bottom: 8px;
+}
+
+p{
+    text-align: center;
+    font-weight: 200;
+    padding-bottom: 40px;
+}
+
+.content{
+    background-image: url(//img.sanjieke.cn/home/4/img/bg.jpg);
+    padding:40px 0;
+    background-size: contain;
+}
+
+.container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.course{
+    width: 416px;
+    height: 279px;
+    display: inline-block;
+    position: relative;
+}
+
+.course h1 {
+    font-weight: 400;
+    font-size: 34px;
+    padding-bottom: 12px;
+}
+
+.course p{
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.course a{
+    display: block;
+    position: absolute;
+    width: 416px;
+    height: 279px;
+}
+
+.course-top{
+    background-image:url(//img.sanjieke.cn/home/4/img/pmbg.jpg);
+    color: white;
+    padding: 56px 0 8px 0;
+    background-size: 420px auto;
+}
+
+.course-bottom{
+    background-color: white;
+    color: white;
+    padding: 25px 100px;
+}
+
+.course-bottom p{
+    background-color: #55b6da;
+    font-weight: 200;
+    padding:9px 60px;
+    border-radius: 3px;
+    font-size:16px;
+}
+
+#yy-top{
+    background-image:url(//img.sanjieke.cn/home/4/img/yybg.jpg);
+}
+
+.course.last{
+    margin-left: 60px;
+}
+
+.content2{
+    background-color: #f3f7fa;
+    padding: 40px 0;
+}
+
+.hidden-2{
+    display: block;
+    position: absolute;
+    width: 262px;
+    height: 321px;
+
+}
+
+.picture{
+    width: 262px;
+    display: inline-block;
+    position: relative;
+    background-color: white;
+}
+
+.picture-top{
+    width: 262px;
+    height: 147px;
+    overflow: hidden;
+}
+
+.picture-top img {
+    width: 262px;
+    margin-top: -16px;
+}
+
+.picture p {
+    text-align: left;
+    margin: 28px auto 0;
+    width: 200px;
+    height: 51px;
+}
+
+.hidden p{
+    padding-bottom: 0;
+    height: 40px;
+    font-weight: 100;
+    font-size: 14px;
+    opacity:1;
+}
+
+.hidden-1{
+    background-color: #55b6da;
+    color: white;
+    font-weight: 400;
+    border-radius: 3px;
+    font-size:16px;
+    text-align: center;
+    padding: 8px 0;
+    width:120px;
+    position: absolute;
+    top:240px;
+    left:70px;
+    opacity:0;
+    text-decoration: none;
+}
+
+
+.picture:hover .hidden-1{
+    opacity: 1;
+}
+
+.picture:hover .hidden p{
+    opacity:0;
+}
+
+.next{
+    margin-left: 35px;
+}
+
+.pic-box-shadow {
+    box-shadow: 0 0 30px rgba(85,182,218,0.3);
+}
+
+.up-transform{
+    transition: transform 0.15s;
+}
+
+.up-transform:hover{
+    transform: translateY(-5px);
+}
+
+.content3{
+    background-color: #f3f7fa;
+    padding: 40px 0;
+}
+
+.content3 h1{
+    padding-bottom: 32px;
+}
+
+.pic-ground{
+    background-image:url(//img.sanjieke.cn/home/4/img/pro.jpg);
+    width: 273px;
+    height: 350px;
+    background-size: cover;
+    position: relative;
+}
+
+
+.pic-ground-p{
+    font-weight: 700;
+    font-size: 23px;
+    padding: 35px;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.circle{
+    width: 146px;
+    height: 146px;
+    border:1px solid white;
+    border-radius: 50%;
+    margin: 10px auto 40px;
+    transition: background-color 0.1s linear;
+}
+
+.circle p{
+    color: white;
+    font-weight: 500;
+    font-size: 30px;
+    padding:53px 0;
+    transition:color 0.1s linear;
+}
+
+.dian{
+    font-weight: 400;
+    font-size: 18px;
+    margin-top:-15px;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.pic-ground:hover .pic-ground-p{
+    opacity: 1;
+}
+
+.pic-ground:hover .dian{
+    opacity: 1;
+}
+
+.pic-ground:hover .circle{
+    background-color: white;
+}
+
+.pic-ground:hover .circle p{
+    color: rgba(250,234,103,.9);
+}
+
+.sim-color {
+    position: absolute;
+    width: 273px;
+    height: 350px;
+    z-index: 0;
+    -webkit-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+    -ms-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    transition: background-color .5s;
+}
+
+.pic-ground:hover .sim-color{
+    background-color: rgba(85,182,218,.9);;
+}

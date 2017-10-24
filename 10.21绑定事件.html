@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定事件</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn1");
+//            oBtn.onclick = function(){
+//                alert("a")
+//            };
+//
+//            oBtn.onclick = function(){
+//                alert("b")
+//            };
+
+//            兼容版本的：
+//            if(oBtn.attachEvent){
+//                oBtn.attachEvent("onclick",function(){
+//                    alert("a")
+//                });
+//                oBtn.attachEvent("onclick",function(){
+//                    alert("b")
+//                })
+//            }else{
+//                oBtn.addEventListener("click",function(){
+//                        alert("a")
+//                    },false
+//                );
+//                oBtn.addEventListener("click",function(){
+//                        alert("b")
+//                    },false
+//                );
+//            }
+
+            //
+
+            function myAddEvent(obj,ev,fn){
+               if(obj.attachEvent){
+                   obj.attachEvent("on"+ev,fn);
+               }else{
+                   obj.addEventListener(ev,fn,false)
+               }
+            }
+
+            myAddEvent(oBtn,"click",function(){
+                alert("a")
+            });
+            myAddEvent(oBtn,"click",function(){
+                alert("b")
+            });
+
+
+
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+</body>
+</html>

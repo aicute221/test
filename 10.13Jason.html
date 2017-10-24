@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jason</title>
+    <style type="text/css">
+        #div1{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        //var arr = [12, 5, 7];
+        //var json = {a:12, b:5, c:7};
+        ////alert(json.a);   =alert(json["a"]);
+        ////json没有length属性
+        //alert(json["a"]);
+        //alert(arr[0]);
+
+        //for(var i = 0; i < arr.length; i++){
+        //    alert("第"+i+"个东西："+arr[i]);
+        //}
+
+        //for(var i in arr){
+        //    alert("第"+i+"个东西："+arr[i]);
+        //}
+
+        //for(var i in json){
+        //    alert("第"+i+"个东西："+json[i]);
+        //}
+
+        //function show(a,b){
+        //   return a+b;
+        //}
+
+        //var c = show();
+        //alert(c);
+
+        //alert(show(3,5));
+
+
+        //function sum(a,b,c){
+         //   return a+b+c
+       // }
+        //alert(sum(12,6,8))
+
+        function sum(){
+            var result=0;
+            for(var i = 0;i < arguments.length; i++){
+                result += arguments[i];
+            }
+            return(result)
+        }
+        alert(sum(12,6,8,1,2,4,6));
+
+
+        function css(obj,name,value){
+            if(arguments.length==2){
+                return obj.style[name]
+            }else{
+                obj.style[name]=value;
+            }
+        }
+
+        var arr1 = [0,1,2,3,4,5,6];
+        //添加splice(起点下标，长度） 删除splice(起点，长度，元素)
+        arr1.splice(3,3);        //从下标3处即3开始删除三个，为0，1，2，6
+        arr1.splice(3,0,3,4,5);  //从下标3处删除0个在添加3，4，5
+        alert(arr1);
+
+        var a = [1,2,3];
+        var b = [4,5,6];
+
+        //for(var i = 2;b.length>0;i--){
+         //   var c =b.shift();
+         //   a.push(c);
+        //}
+        alert(a.concat(b));
+
+        window.onload=function(){
+            var oDiv = document.getElementById("div1");
+            css(oDiv,"background-color","black");
+
+
+            var oBtn1 = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            var timer=null;
+
+            oBtn1.onclick=function(){
+                timer=setInterval(function(){
+                    alert(a)
+                },1000);
+            };
+
+            oBtn2.onclick=function(){
+                clearInterval(timer)
+            }
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <div id="div1">
+    </div>
+
+    <input id="btn1" type="button" value="开始">
+    <input id="btn2" type="button" value="结束">
+</body>
+</html>

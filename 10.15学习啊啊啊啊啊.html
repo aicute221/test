@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习啊啊啊</title>
+    <script>
+        window.onload=function(){
+            //oText.setAttribute("value","sss")
+            var oBtn = document.getElementById("btn1");
+            var oUl =document.getElementById("ul1");
+            var oTxt = document.getElementById("txt1");
+
+
+            oBtn.onclick = function(){
+                var oLi = document.createElement("li");
+                var aLi = document.getElementsByTagName("li");
+
+                if(aLi.length>0){
+                    oUl.insertBefore(oLi,aLi[0]);
+                }else{
+                    oUl.appendChild(oLi);
+                }
+                oLi.innerHTML = oTxt.value + "<a href='#'>"+"删除"+"</a>";
+
+                var oA = document.getElementsByTagName("a");
+
+                for(var i = 0;i < oA.length;i++) {
+                    oA[i].onclick = function () {
+                        //this.parentNode.style.display = "none";
+                        oUl.removeChild(this.parentNode)
+                    }
+                }
+
+
+            };
+
+
+        };
+
+    </script>
+</head>
+<body>
+
+<input id="txt1" type="text">
+<input id="btn1" type="button" value="创建li">
+<ul id="ul1">
+
+</ul>
+
+</body>
+</html>
