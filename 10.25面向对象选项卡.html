@@ -21,27 +21,30 @@
         }
     </style>
     <script>
-        var oBtn = null;
-        var aDiv = null;
-
         window.onload=function(){
-            var oDiv = document.getElementById("div1");
-            oBtn = oDiv.getElementsByTagName("input");
-            aDiv = oDiv.getElementsByTagName("div");
-
-            for(var i = 0;i<oBtn.length;i++){
-                oBtn[i].index = i;
-                oBtn[i].onclick = fnClick
-            }
+          new TabSwitch("div1")
         };
+        function TabSwitch(id){
+            var _this =this;
+            var oDiv = document.getElementById(id);
+            this.oBtn = oDiv.getElementsByTagName("input");
+            this.aDiv = oDiv.getElementsByTagName("div");
 
-        function fnClick(){
-            for(var i = 0;i<oBtn.length;i++){
-            oBtn[i].className = "";
-            aDiv[i].className = "";
+            for(var i = 0;i<this.oBtn.length;i++){
+                this.oBtn[i].index = i;
+                this.oBtn[i].onclick = function(){
+                    _this.fnClick(this)
+                }
             }
-        this.className = "yell";
-        aDiv[this.index].className = "div2"}
+        }
+
+        TabSwitch.prototype.fnClick=function (oBtn){
+            for(var i = 0;i<this.oBtn.length;i++){
+                this.oBtn[i].className = "";
+                this.aDiv[i].className = "";
+            }
+            oBtn.className = "yell";
+            this.aDiv[oBtn.index].className = "div2"}
 
     </script>
 </head>
