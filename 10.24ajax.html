@@ -14,7 +14,7 @@
                     var oAjax = new ActiveXObject("Microsoft.XMLHTTP")   //IE6
                 }
                 //2.连接到服务器 open(方法，文件名，异步传输)
-                oAjax.open("GET","url?t="+new Date().getTime(),true);
+                oAjax.open("GET",url + "?t=" + new Date().getTime(),true);
                 //3.发送请求
                 oAjax.send();
                 //4.接收返回
@@ -32,11 +32,13 @@
                 }
             }
 
-            oBtn.onclick = myAjax("1.txt",function(str){
-                alert(str)
-            },function(){
-                alert("失败：")
-            })
+            oBtn.onclick =function(){
+                myAjax("txt/1.txt",function(str){
+                    alert(str)
+                },function(){
+                    alert("失败：")
+                })
+            }
         }
     </script>
 </head>
