@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象高级</title>
+    <script>
+        var json1 = {
+            a:12,
+            b:5,
+            c:"abc",
+            d:function()
+            {
+            alert("a")
+            }
+        };
+        alert(json1.a);
+        json1.d();
+
+        var json2 ={
+            a:12,
+            show: function()
+            {
+                alert(this.a)   //this 是 json2  this.a=json2.a=12
+            }
+        };
+        json2.show();
+
+        var json3 = {
+            name : "blue",
+            QQ : "729711995",
+            showName: function(){
+                alert("我的名字："+this.name)
+             },
+            showQQ : function(){
+                alert("QQ:"+this.QQ)
+            }
+        };
+        json3.showName();
+        json3.showQQ();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

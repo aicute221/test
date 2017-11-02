@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <style type="text/css">
+        #div1{
+            width: 150px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1">
+    <input id="input1" type="button" value="按钮">
+    <a href="http://www.baidu.com" target="_blank">www.baidu.com</a>
+</div>
+    <form action="www.baidu.com">
+        <input id="input2" type="submit" value="提交">
+    </form>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#input1").click(function(e){
+            e.stopPropagation();   //阻止冒泡事件stopPropagation
+            alert("input1");
+        });
+        $("div").click(function(e){
+            e.stopPropagation();
+            alert("div");
+            alert(e.isPropagationStopped()); //true
+            alert(e.isDefaultPrevented());   //false
+        });
+//        $(document).click(function(){
+//            alert("document");
+//        });
+
+        $("a").click(function(e){
+            e.preventDefault();     //阻止默认事件preventDefault
+            alert("www.baidu.com");
+            alert(e.isDefaultPrevented());
+        });
+//        $("#input2").click(function(e){
+//            e.preventDefault();
+//            alert("input2")
+//        });
+
+//        $("form").submit(function(e,data1,data2,data3,data4){
+//            e.preventDefault();
+//            alert("input2");
+//            alert(data1+"|"+data2+"|"+data3+"|"+data4.user);   //trigger提供了一个简写方法，要模拟用户行为只要在最后再调用一次空的同名事件就行
+//        }).trigger("submit",["123","abc",["1","2","3"],{user:"nine"}]);   //data1 是123   data2是abc  data3是1.2.3  是数组哦，最外面的不是数组
+
+        //$("form").trigger("submit");
+        // trigger提交后跳转，没有阻止默认行为。trigger执行全部的。会冒泡。
+        $("form").submit(function(e){
+            e.preventDefault();
+        }).trigger("submit");
+       // $("form").triggerHandler("submit");
+        // triggerHandler提交后没有跳转，阻止了默认行为。triggerHandler只执行第一个匹配到的。不会冒泡
+
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <script>
+//        var str = "abcdefghijklmn";
+//        alert(str.search("b"));     //1=查找所在的下标。0开始。 没有的是-1
+//        alert(str.substring(2,5));  //cde=不包括5，就下标2，3，4的
+//        alert(str.charAt(1));       //b=获取某个字符
+
+//        var str2 = "11-22-33-44-55";
+//        var arr2 = str2.split("-");
+//        alert(arr2);
+
+        var str3 = "12 fff 87 er334 233 -=-=fa80";
+        var arr3 = [];
+        var tmp = "";
+        for(var i = 0;i<str3.length;i++){
+            if(str3.charAt(i)>="0" && str3.charAt(i)<="9"){
+                tmp += str3.charAt(i)
+            }else{
+                if(tmp){
+                    arr3.push(tmp);
+                    tmp=""
+                }
+            }
+        }
+        if(tmp){
+            arr3.push(tmp);
+            tmp=""
+        }
+        alert(arr3);
+        alert(str3.match(/\d+/g));  //     / \d /   转义\d是数字  g是找到全部的global +是量词代表若干个~没有+的话数字是一个一个的1，2，3
+
+        var re =new RegExp("a","i");   //就是a   i是忽略，忽略大小写 js风格。或者perl风格 var re = /a/i
+        var str4 = "abced";
+        alert(str4.search(re));    // 0  因为a是第0个。
+
+        var str5 = "a9dhiwsaaaa";
+        alert(str5.replace(/a/g,"0"))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

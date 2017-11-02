@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+    <script>
+//        window.onload = function(){
+//            var oDate = new Date();
+//            oDate.setDate(oDate.getDate()+8);
+//            alert(oDate.getFullYear()+"-"+(oDate.getMonth()+1)+"-"+oDate.getDate());
+//
+//            document.cookie = "user=Blue; expires=" + oDate;       //添加，不会被覆盖掉
+//            document.cookie = "password=123456";
+//            alert(document.cookie);
+//        };
+
+        function setCookie(name,value,iDay){
+            var oDate = new Date();
+            oDate.setDate(oDate.getDate()+iDay);
+         //   alert(oDate.getFullYear()+"-"+(oDate.getMonth()+1)+"-"+oDate.getDate());
+
+            document.cookie = name+"="+value+"; expires=" + oDate;       //添加，不会被覆盖掉
+        }
+
+        function getCookie(name){
+            var arr = document.cookie.split("; ");   //;和空格，米有空格是出不来东西的~
+            for(var i = 0;i<arr.length;i++){
+                var arr2 = arr[i].split("=");
+                if(arr2[0] === name){
+                    return arr2[1]
+                }
+            }
+            return"啊啊啊没出来啊"
+        }
+
+        function removeCookie(name){
+            setCookie(name,1,-1)
+        }
+
+        setCookie("userName","dancingBlue", 5);
+        setCookie("passWord","223344", 5);
+
+        alert(document.cookie);
+        alert(getCookie("userName"));
+        alert(getCookie("passWord"));
+        removeCookie("userName");
+        alert(document.cookie);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

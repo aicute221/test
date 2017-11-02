@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+    <script>
+//        var arr1 = [1,2,3];
+//        var arr2 = arr1;
+//        arr2.push(4);
+//        alert(arr1);
+//        alert(arr2);
+//
+//        var arr3 = [1,2,3];
+//        var arr4 = [];
+//        for(var i = 0;i<arr3.length;i++){
+//            arr4.push(arr3[i]);
+//        }
+//        arr4.push(4);
+//        alert(arr3);
+//        alert(arr4);
+
+
+
+
+        function A(){
+            this.abc = 12;
+        }
+
+        A.prototype.show = function(){
+            alert(this.abc)
+        };
+
+        function B(){
+//this->new B()
+            A.call(this)
+        }
+//B.prototype = A.prototype;
+        for(var i in A.prototype){
+            B.prototype[i] = A.prototype[i]
+        }
+        B.prototype.fn = function(){
+            alert("abc")
+        };
+        var objB = new B();
+        var objA = new A();
+
+        objA.abc = 21;
+
+        objB.abc = 22;
+
+        objB = objA;
+//        objB.show();
+
+//
+
+//        objA.fn();
+//        objB.fn();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

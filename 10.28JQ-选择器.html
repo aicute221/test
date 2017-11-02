@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <!--<style type="text/css">-->
+        <!--#p1{-->
+            <!--color:red;-->
+        <!--}-->
+    <!--</style>-->
+    <style type="text/css">
+        #div2{
+            width: 200px;
+            height:100px;
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <p id="p1">111</p>
+    <p>111</p>
+    <p>111</p>
+    <div>
+        <p>111-1</p>
+        <p>111-1</p>
+    </div>
+</div>
+<h1>标题</h1>
+<p>222</p>
+<p>333</p>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li id="red">3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<ul>
+    <li>1</li>
+    <!--<li>2</li>-->
+    <!--<li>3</li>-->
+    <!--<li>4</li>-->
+    <!--<li>5</li>-->
+</ul>
+<a title="num1">a</a>
+<a title="num2">a</a>
+<a title="3num">a</a>
+<a title="4num">a</a>
+
+<div id="div2">
+
+</div>
+<input type="text">
+
+<h2 class="red">h2h2h2</h2>
+<h2>h2h2h2</h2>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#p1").css("color","red");
+        $("p:eq(1)").css("color","green");  //("p").eq(1).css("color","green");
+        $("div").children().eq(2).css("color","#f0a");
+        $("#div1 p").css("background-color","#20B2AA");
+        $("div~p").css("background-color","#f0f0f0");  // nextAll选择器： div~p：~是获取节点后面所有同级DOM对象
+        //next选择器：div+p：~是获取节点后面紧挨着的第一个同级DOM对象
+//空格其实就是find全部后代元素。 >其实就是children（直接子元素）。+其实就是next。~其实就是nextAll
+
+        //$("ul:first li:last").css("background-color","#ccc");
+        //$("li:not(#red)").css("background-color","#ccc");
+        $("li:even").css("background-color","#ccc");    //odd奇数，even偶数，都是从零开始的。
+        $("li:eq(-1)").css("color","green");  //负数是从后面数从-1开始的，上面是从0开始的。   eg是几就是几 gt大于 lt小于
+        $("a[title$=num]").css("color","red");
+        $("a[title^=num]").css("color","green");
+        $("li:only-child").css("background-color","orange");
+        var a = $("#div2").css(["width","height","background-color"]);
+        for(var i in a){
+            console.log(i +":"+a[i])
+        }
+        $.each(a,function(attr,value){
+            console.log(attr+":"+value)
+        });
+        $("#div2").each(function(index,element){
+            console.log(index+":"+element)
+        });
+//        $("h2").click(function(){
+//            $(this).toggleClass("green");
+//            if($(this).hasClass("green")){
+//                $(this).removeClass("red")
+//            }else{
+//                $(this).addClass("red")
+//            }
+//        });
+
+//        $("h2").click(function(){
+//            $(this).toggleClass(function(){
+//                if($(this).hasClass("red")){
+//                    $(this).removeClass("red");
+//                    return "green"
+//                }else{
+//                    $(this).removeClass("green");
+//                    return "red"
+//                }
+//            })
+//        });
+
+        $("h2").click(function(e){  //一般不写e,是为了下面才写的
+//            $(this).toggleClass("green");
+//            $(this).toggleClass("red");
+            alert(e.type);  //e.type输出click      typeof e.type输出string
+            alert(e.target);  //object HTMLHeadingElement
+        });
+
+        $("input").click({age:100},function(e){
+            alert(e.type);
+            alert(e.target);
+            alert(e.data);      //object object
+            alert(e.data.age);  //100
+
+        });
+//        $(document).click(function(e){
+//          alert(e.pageY+","+e.screenY+","+e.clientY)
+//        });
+
+        $(document).keyup(function(e){
+           alert(e.which)
+        });
+
+        console.log($(window).width());  //1440
+        console.log($("#div2").css("width"));  //"#div2"
+        console.log($(window).height()); //706
+
+      //  alert($("#div2").offset().left);
+        $("#div2").bind("click",function(){
+            $(this).css("background-color","blue")
+        });
+        $("#div2").unbind();
+
+        var flag = 1;
+        $("#div2").click(function(){
+            if(flag == 1){
+                $(this).css("background-color","orange");
+                flag = 2;
+            }else if(flag == 2){
+                $(this).css("background-color","yellow");
+                flag = 3;
+            }else if(flag == 3){
+                $(this).css("background-color","green");
+                flag = 1;
+            }
+        });
+
+
+    })
+</script>
+</html>

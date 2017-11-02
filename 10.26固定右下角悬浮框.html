@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>悬浮框</title>
+    <style type="text/css">
+       #div1{
+           width: 200px;
+           height: 200px;
+           position: absolute;
+           bottom: 0;
+           right: 0;
+           background-color: red;
+       }
+        body{
+            height: 2000px;
+        }
+    </style>
+    <script>
+        window.onscroll = window.onresize= function(){
+            var oDiv = document.getElementById("div1");
+            var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+            oDiv.style.top = scrollTop + document.documentElement.clientHeight - oDiv.offsetHeight + "px";
+        };
+
+        var rel=confirm("您是否要删除？");
+        alert(rel);   //确认返回true,取消返回false  //返回boolean
+
+        var res=prompt("请输入您的名字","Blue");
+        alert(res);    //返回的是输入的东西Blue  //返回字符串或null
+
+
+
+    </script>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

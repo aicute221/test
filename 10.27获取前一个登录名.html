@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用cookie获取登录名</title>
+    <script>
+
+        var setCookie = function(name,value,iDay){
+            var oDate = new Date();
+            oDate.setDate(oDate.getDate()+iDay);
+            document.cookie = name+"="+value +"; expires" + oDate;
+        };
+
+        var getCookie = function(name){
+            var arr = document.cookie.split("; ");
+            for(var i = 0;i<arr.length;i++){
+                var arr2 = arr[i].split("=");
+                if (arr2[0] ===name){
+                    return arr2[1];
+                }
+            }
+        };
+
+//        var removeCookie = function(name){
+//            setCookie(name,1,-1)
+//        };
+
+        window.onload=function(){
+            var oForm = document.getElementById("form1");
+            var oUser = document.getElementsByName("user")[0];
+            oForm.onSubmit = function(){
+                setCookie("user",oUser.value,4)
+            };
+            oUser.value = getCookie("user")
+
+
+        }
+    </script>
+</head>
+<body>
+<form id="form1">
+    登录名：<input id="use" type="text" name="user"><br>
+    密码：<input type="password" name="pass"><br>
+    <input type="submit">
+</form>
+</body>
+</html>

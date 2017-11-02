@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bom</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn1");
+            var oTxt = document.getElementById("txt1");
+            oBtn.onclick = function(){
+                var oNewWin = window.open("about:blank","_blank");
+                oNewWin.document.write(oTxt.value)
+            }
+        };
+
+        alert(window.navigator.userAgent);
+        alert(window.location)
+
+    </script>
+</head>
+<body>
+<!--<input type="button" value="打开窗口" onclick="window.open('http://www.baidu.com')">-->
+<!--<input type="button" value="write" onclick="document.write('abc')">  -->
+<!--先清空，然后再写-->
+<input type="button" value="关闭窗口" onclick="window.close()">
+<textarea id="txt1" rows="10" cols="40"></textarea>
+<input id="btn1" type="button" value="按钮">
+</body>
+</html>

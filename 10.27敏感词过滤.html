@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>敏感词过滤</title>
+    <script>
+
+        window.onload=function(){
+            var oTxt1 = document.getElementById("txt1");
+            var oTxt2 = document.getElementById("txt2");
+            var oBtn = document.getElementById("btn1");
+
+            var oTxt3 = document.getElementById("txt3");
+            var oBtn3 = document.getElementById("btn3");
+
+
+            oBtn.onclick = function(){
+//                var re = /淘宝|北京|百度/g;
+//                oTxt2.value = oTxt1.value.replace(re,"***");
+
+                var re = /<[^<>]+>/g;
+                oTxt2.value = oTxt1.value.replace(re,"");
+            };
+
+            oBtn3.onclick=function(){
+                var re3 = /^\w+@[0-9a-z]+\.[a-z]+$/i;   //  ^字符串的开头  $字符串的结尾
+                if(re3.test(oTxt3.value)){
+                    alert("合法的邮箱")
+                }else{
+                    alert("写错了啊")
+                }
+        };
+
+
+        var str1 = "apc bpc cpc dpc xpc hpc wpc";
+        var re1 = /[abc]pc/g ;          //注释[]是表示或的意思
+        console.log(str1.match(re1));
+
+
+
+        var str3 = "12 fff 87 er334 233 -=-=fa80";
+        console.log(str3.match( /[0-9] /g ));
+        console.log(str3.match( /\d/g ));
+        console.log(str3.match( /[0-9]+/g ));
+        console.log(str3.match( /\d+/g ));
+
+       // aicute221@sina.cn
+       // 一串英文数字下滑线  @  英文数字     .   一串英文
+        //   / \w+         @ [0-9a-z]+   \.  [a-z]+ /
+
+        //   \d  [0-9]     转义\d是数字0-9  g是找到全部的global +是量词代表若干个~没有+的话数字是一个一
+        //   \w  [a-z0-9_] 英文数字下划线
+        //   \s  空白字符   空格，tab等不可以打印不可显示的字符
+        //   \D  [^0-9]    除了数字
+        //   \W  [^a-z0-9_] 除了英文数字下划线
+        //   \S  非空白字符
+        //   [^0-9a-z]  ^是排除，  [^<>]除了<>以外的任意字符
+        //    .(点)代表任意字符   <.+>任意个任意字符
+        //   量词
+        // {n}正好出现n次   电话号码 /[1-9] \d{7} /  第一位是1-9之间的，后7位是数字的。
+        // {n,m}最少n次，   最多m次  QQ号 /[1-9] \d{4,10} /
+        // {n,} 最少n次，   最多不限
+        // + 相当于{1,}     最少1次，最多不限制
+        // ? 相当于{0,1}    最少0次，最多1次
+        //  0396-51001008   ( 0 \d{2-3} -)?  [1-9]\d{7} (- \d{1,4})?
+        // * 可有可无，数量不限
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+<textarea id="txt1" rows="10" cols="40"></textarea>
+<input id="btn1" type="button" value="过滤">
+<textarea id="txt2" rows="10" cols="40"></textarea>
+
+<textarea id="txt3" rows="10" cols="40"></textarea>
+<input id="btn3" type="button" value="校验邮箱">
+</body>
+</html>
