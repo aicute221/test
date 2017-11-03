@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #7FFFD4;
+        }
+        .txt2{
+            float: left;
+            background-color: orange;
+            padding: 5px;
+            margin-right: 5px;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: #7FFFD4;
+        }
+    </style>
+</head>
+<body>
+<input id="show1" type="button" value="显示">
+<input id="hide1" type="button" value="隐藏">
+<input id="change" type="button" value="切换">
+<div id="box1"></div>
+
+<br>
+<input id="show2" type="button" value="显示">
+<input id="hide2" type="button" value="隐藏">
+<br>
+<p class="txt2">你</p>
+<p class="txt2">好</p>
+<p class="txt2">么</p>
+<p class="txt2">？</p>
+
+<br><br><br>
+<input id="btn3" type="button" value="按钮">
+<div id="div3"></div>
+
+
+</body>
+<script>
+    $(document).ready(function(){
+        $("#hide1").click(function(){
+            $("#box1").hide(1000);
+        });
+        $("#show1").click(function(){
+            $("#box1").show(1000,function(){
+                alert("Div显示以后弹出来");
+            });
+        });
+        $("#change").click(function(){
+            $("#box1").toggle()
+        });
+
+        $("#hide2").click(function(){
+            $(".txt2").last().hide(1000,function txtHide(){
+               $(this).prev("p").hide(1000,txtHide);
+            });
+        });
+
+//        $("#show2").click(function(){
+//            $(".txt2").eq(0).show(function(){
+//                $(".txt2").eq(1).show(function(){
+//                    $(".txt2").eq(2).show(function(){
+//                        $(".txt2").eq(3).show()
+//                    });
+//                });
+//            });
+//        });
+
+        //定义个函数txtShow,之后再自调用。
+        $("#show2").click(function(){
+            $(".txt2").first().show("fast",function txtShow(){
+                $(this).next('p').show("fast",txtShow)
+            });
+        });
+
+//        $("#btn3").click(function(){
+//            $("#div3").animate({
+//                width: "150px"
+//            },function(){
+//                $("#div3").animate({
+//                    height: "150px"
+//                })
+//            })
+//        })
+        $("#btn3").click(function(){
+            $("#div3").animate({ width: "150px"})
+                .animate({ height: "150px"})
+                .animate({ opacity: 0.5})
+        });
+
+
+    })
+
+
+</script>
+</html>
