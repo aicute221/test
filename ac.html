@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var last_array = [];
+    for(var c = 1;c<11;c++){
+        var current_array = [];
+        for(var i = 0;i<c;i++){
+            if(i==0 || i==c-1){
+                current_array.push(1)
+            }else{
+                current_array.push(last_array[i-1] + last_array[i])
+            }
+        }
+        last_array = current_array;
+        console.log(last_array);
+    }
+</script>
+</body>
+</html>
