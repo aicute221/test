@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工具函数</title>
+    <script src="js/jquery-3.2.1.js" ></script>
+</head>
+<body>
+<div id="box"></div>
+<div id="pox"></div>
+
+</body>
+<script>
+    $(document).ready(function(){
+        var arr = ["张三","李四","王二","麻子"];
+        $.each(arr,function(index,value){
+            $("#box").html( $("#box").html() +(index+1)+"."+value+"<br>");
+        });
+        $.each($.ajax(),function(name,fn){
+            $("#box").html( $("#box").html() +name+ "<br/>")
+        });
+
+        var arr1 = [1,4,10,7,9];
+        var arrGrep = $.grep(arr1,function(element,index){
+            return index<4 && element<8
+        });
+        console.log(arrGrep);    //$.grep的index从0开始算----筛选数据
+
+        var arrMap = $.map(arr1,function(element,index){
+            if(index<4 && element<8){
+                return element+1;
+            }
+        });
+        console.log(arrMap);     //$.map----修改数据
+
+        var arrInArrzy = $.inArray(10,arr1);
+        console.log(arrInArrzy);   //$.inArray找到元素所在的下标，从0开始。
+
+        var arr2 = [200,300];
+        console.log( $.merge(arr1,arr2) );  //合并俩数组
+
+        console.log($.isArray(arr1));
+
+        var obj = {};
+        var obj1 = new Object();
+        console.log($.isPlainObject(obj));    //PlainObject存粹对象，判断是都是由{}或者new Object()创造出的对象。
+        console.log($.isPlainObject(obj1));
+
+        console.log($.contains( $("box"),$("pox") ));    //谁是否包含
+
+        var obj2={
+            name: "从楠楠",
+            test:function(){
+                alert(this);
+                console.log(this);
+                console.log(this.name)
+            }
+        };
+
+        obj2.test();
+
+
+    })
+</script>
+</html>
